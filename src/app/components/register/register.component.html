@@ -14,7 +14,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" formControlName="name" [(ngModel)]="accountRegister.name" />
+                      <input type="text" id="form3Example1c" class="form-control" formControlName="name" />
                       <label class="form-label" for="form3Example1c">Your Name</label>
                       <div *ngIf="signupForm.controls['name'].errors?.['required'] && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)" class="text-danger">
                         <div *ngIf="signupForm.controls['name'].hasError('required')">Name is required.</div>
@@ -25,7 +25,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" formControlName="email" [(ngModel)]="accountRegister.email" />
+                      <input type="email" id="form3Example3c" class="form-control" formControlName="email" email/>
                       <label class="form-label" for="form3Example3c">Your Email</label>
                       <div *ngIf="signupForm.controls['email'].errors?.['email'] && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)" class="text-danger">
                         Invalid email format.
@@ -36,7 +36,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" formControlName="password" [(ngModel)]="accountRegister.password" minlength="8" />
+                      <input type="password" id="form3Example4c" class="form-control" formControlName="password" minlength="8" />
                       <label class="form-label" for="form3Example4c">Password</label>
                       <div *ngIf="signupForm.controls['password'].errors?.['minlength'] && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)" class="text-danger">
                         Password must be at least 8 characters long.
@@ -52,7 +52,6 @@
 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                <!-- Your image here -->
                 <img src="assets/samehBankLogo.png" class="img-fluid" alt="Sample image">
               </div>
             </div>

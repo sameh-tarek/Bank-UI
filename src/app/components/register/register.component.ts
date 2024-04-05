@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {NgIf} from "@angular/common";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {localhost, saveToken} from "../../environments/environments";
+import {AuthService} from "../../services/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -19,9 +21,8 @@ import {localhost, saveToken} from "../../environments/environments";
 })
 export class RegisterComponent {
   signupForm: FormGroup;
-  accountRegister: AccountRegister = new AccountRegister('', '', '');
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -33,11 +34,10 @@ export class RegisterComponent {
 
   submitForm() {
     if (this.signupForm.valid) {
-      const formData = this.signupForm.value;
-      this.http.post<any>(`${this.baseUrl}/auth/register`, formData)
-        .subscribe({
+        this.authService.register(this.signupForm.value as AccountRegister).subscribe({
           next: response => {
             saveToken(response.token)
+            this.router.navigate(['home']);
             console.log(response);
           },
           error: error => {

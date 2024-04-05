@@ -8,12 +8,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active"
-          ariaCurrentWhenActive="page">Login</a></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active"
-             ariaCurrentWhenActive="page">Register</a>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" (click)="dashboard()">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>

@@ -1,13 +1,13 @@
 export const saveToken = (token: String) => {
-  localStorage.setItem('token', String(token));
+  sessionStorage.setItem('token', String(token));
 };
 
 export const getToken = () => {
-  return localStorage.getItem('token');
+  return sessionStorage.getItem('token');
 };
 
 export const logOut = () => {
-  localStorage.clear();
+  sessionStorage.clear();
 };
 
 export const localhost = () => {
