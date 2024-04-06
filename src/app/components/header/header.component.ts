@@ -3,6 +3,7 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {getToken, logOut} from "../../environments/environments";
 import {audit} from "rxjs";
 import {NgIf} from "@angular/common";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -17,10 +18,10 @@ import {NgIf} from "@angular/common";
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
   }
   isAuthenticated() {
-    return getToken() != null;
+    return getToken() != null && this.authService.IsValidToken();
   }
 
   logout() {

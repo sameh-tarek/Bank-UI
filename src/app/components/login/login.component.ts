@@ -32,7 +32,9 @@ export class LoginComponent {
       this.authService.authenticate(this.loginForm.value as AccountLogin).subscribe({
         next: response => {
           saveToken(response.token);
-          this.router.navigate(['home']);
+          if(this.authService.IsValidToken()){
+            this.router.navigate(['home']);
+          }
           console.log(response);
         },
         error: error => {
