@@ -28,10 +28,4 @@ export class HeaderComponent {
     logOut()
     this.router.navigate(['']);
   }
-
-  protected readonly audit = audit;
-
-  dashboard() {
-    this.router.navigate(['home']);
-  }
 }

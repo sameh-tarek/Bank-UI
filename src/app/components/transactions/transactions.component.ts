@@ -24,14 +24,12 @@ export class TransactionsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getAccountTransactions();
-    // Polling every 10 seconds (adjust as needed)
     this.subscription = interval(10000).subscribe(() => {
       this.getAccountTransactions();
     });
   }
 
   ngOnDestroy(): void {
-    // Unsubscribe to avoid memory leaks
     this.subscription.unsubscribe();
   }
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AccountRegister} from "../../models/accountRegister/account-register";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {localhost, saveToken} from "../../environments/environments";
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";

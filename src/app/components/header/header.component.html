@@ -15,10 +15,10 @@
           <a class="nav-link" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
         </li>
         <li class="nav-item" *ngIf="isAuthenticated()">
-          <a class="nav-link" (click)="dashboard()">Dashboard</a>
+          <a class="nav-link dashboard" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
         </li>
         <li class="nav-item" *ngIf="isAuthenticated()">
-          <a class="nav-link" (click)="logout()">Logout</a>
+          <a class="nav-link logout" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>
