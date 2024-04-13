@@ -16,14 +16,20 @@ import {AsyncPipe, CurrencyPipe} from "@angular/common";
 })
 export class HomeComponent implements OnInit{
   accountBalance$!: Observable<any>;
-  constructor(private accountService: AccountService, private router: Router) {
-  }
+  cardNumber$!: Observable<String>;
+
+  constructor(
+    private accountService: AccountService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.cardNumber$ = this.accountService.getAccountCardNumber();
+    console.log(this.cardNumber$)
     this.accountBalance$ = this.accountService.getAccountBalance();
   }
 
   viewTransactions() {
-    this.router.navigate(['transactions'])
+    this.router.navigate(['transactions']);
   }
 }

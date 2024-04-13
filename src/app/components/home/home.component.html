@@ -6,7 +6,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Your Account Balance</h5>
-          <p class="card-text lead">Balance: {{ accountBalance$ | async | currency}}</p>
+          <p class="card-text lead">Balance: {{ accountBalance$ | async | currency }}</p>
+          <p class="card-text">Card Number: {{ cardNumber$ | async }}</p>
         </div>
       </div>
     </div>

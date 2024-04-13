@@ -21,4 +21,9 @@ export class AccountService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${getToken()}`);
     return this.http.get<any>(`${this.baseUrl}/account/transactions`, {headers});
   }
+
+  getAccountCardNumber(): Observable<string> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${getToken()}`);
+    return this.http.get<string>(`${this.baseUrl}/account/cardNumber`, { headers });
+  }
 }
